@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//importing components
+import InvoiceForm from "./components/invoiceForm/invoiceform";
+import Header from "./components/header/header";
+import Home from "./components/Home/home";
+import Admin from "./components/Admin/Admin";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Header></Header>
+        <Switch>
+          <Route path="/" exact>
+            <Home message="Welcome to Shobha "></Home>
+          </Route>
+          <Route path="/admin">
+            {" "}
+            <Admin></Admin>
+          </Route>
+          <Route path="/invoice">
+            {" "}
+            <InvoiceForm></InvoiceForm>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

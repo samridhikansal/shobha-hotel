@@ -1,0 +1,21 @@
+.admin-title {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .admin-title {
+    text-align: right;
+  }
+}
+
+.admin-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .admin-wrapper {
+    flex-direction: row;
+  }
+}

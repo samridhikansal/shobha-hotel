@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 100%;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 700px) {
+  .header {
+    flex-direction: row;
+
+    width: 100%;
+  }
+  .logo {
+    color: red;
+    width: 30%;
+  }
+  .list {
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: indianred;
+}
+.link:hover {
+  transition: 3ms;
+}

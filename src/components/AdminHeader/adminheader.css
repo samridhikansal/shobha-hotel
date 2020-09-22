@@ -1,0 +1,11 @@
+.admin-header {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .admin-header {
+    width: 20%;
+    height: 100vw;
+    background-color: indianred;
+  }
+}
