@@ -15,7 +15,7 @@ const Header = () => {
           Sign up
         </div>
         <div style={{ marginLeft: "20px" }} className="link">
-          Log In
+          <Link to="/signin"> Sign In</Link>
         </div>
       </div>
     </div>

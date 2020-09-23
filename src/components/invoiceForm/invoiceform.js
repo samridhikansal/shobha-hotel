@@ -5,7 +5,10 @@ import "./invoiceForm.css";
 
 const InvoiceForm = ({ productList }) => {
   const [formSave, handleformSave] = useState(false);
-  //console.log(productList);
+  const [formData, setFormData] = useState({});
+
+  const handleformDataChange = (e) => {};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleformSave(true);
@@ -22,11 +25,48 @@ const InvoiceForm = ({ productList }) => {
           {" "}
           <h4> Bill Id: {uuid()}</h4>
         </div>{" "}
-        <div className=" form-body">hello i am form body</div>
+        <div className=" form-body">
+          <label htmlFor="fullName"> Full Name:</label>
+          <input id="fullName" type="text" value={formData.fullName}></input>
+          <label htmlFor="phone"> Full Name:</label>
+          <input id="phone" type="text" value={formData.phone}></input>
+          <label htmlFor="food-type"> Select food category </label>
+          <select
+            name="food-type"
+            id="food-type"
+            className="food-type"
+            value={formData.cat}
+          >
+            {productList.map((item) => {
+              return (
+                <option
+                  key={uuid()}
+                  value={item.cat}
+                  className=" food-type-cat"
+                >
+                  {" "}
+                  {item.cat}
+                </option>
+              );
+            })}
+          </select>
+          {formData.cat !== null ? (
+            <ul>
+              {productList.map((item) => {
+                return (
+                  <ul>
+                    {item.itemList.map((itemlist) => {
+                      return <li>{itemlist.item}</li>;
+                    })}
+                  </ul>
+                );
+              })}
+            </ul>
+          ) : null}
+        </div>
         <div className="form-footer">
           <div className="btn-group">
             {" "}
-            {/* <button> Save Bill</button> */}
             {formSave ? (
               <>
                 {" "}

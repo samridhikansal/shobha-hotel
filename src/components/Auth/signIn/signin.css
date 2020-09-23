@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.sign-in-wrapper {
+  width: 10vw;
+  height: 100vh;
+}
+
+.button-wrapper {
+  position: absolute;
+  top: 50vh;
+
+  /* left: 42vw; */
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 700px) {
+  /* .button-wrapper {
+    left: 48vw;
+  } */
+}
