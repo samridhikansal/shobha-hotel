@@ -22,7 +22,22 @@ class GenerateInvoice extends React.Component {
     return (
       <div>
         <h3>Generate Invoice </h3>
-
+        {/* value={this.state.value} onChange={this.handleChange} */}
+        <label>Select Category</label>
+        <select>
+          {this.props.itemsData.map((item) => {
+            return <option value={item.category}>{item.category}</option>;
+          })}
+        </select>
+        <label>Select Sub Category</label>
+        <select>
+          {this.props.itemsData.map((item) => {
+            return <option value={item.category}>{item.category}</option>;
+          })}
+        </select>
+        {this.props.itemsData.map((item) => {
+          return <p>{item.cat}</p>;
+        })}
         <form>
           <label>Full Name</label>
           <input type="text"></input>

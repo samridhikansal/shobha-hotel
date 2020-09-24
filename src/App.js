@@ -15,7 +15,7 @@ function App() {
         <Header></Header>
         <Switch>
           <Route path="/" exact>
-            <Home message="Welcome to Shobha "></Home>
+            <GenerateInvoice></GenerateInvoice>
           </Route>
           <Route path="/admin">
             {" "}
