@@ -21,8 +21,9 @@ class GenerateInvoice extends React.Component {
     return (
       <div>
         <h3>Generate Invoice </h3>
+
         <form className="form">
-          <label>Select Category</label>
+          <label>Category</label>
           <select
             id="itemcat"
             value={this.state.itemCat}
@@ -30,7 +31,7 @@ class GenerateInvoice extends React.Component {
               this.setState({ ...this.state, itemCat: e.target.value })
             }
           >
-            <option value=""> Choose an option </option>
+            <option value="">Category</option>
             {this.props.itemsData.map((item) => {
               return (
                 <option key={uuid()} value={item.category}>
@@ -40,9 +41,7 @@ class GenerateInvoice extends React.Component {
             })}
           </select>
           {/* Category sub-cat */}
-          <label id="itemlist">
-            Select Sub Category for {this.state.itemCat}
-          </label>
+          <label id="itemlist">Sub Category</label>
           <select
             id="itemlist"
             value={this.state.item.name}
@@ -58,7 +57,7 @@ class GenerateInvoice extends React.Component {
               });
             }}
           >
-            <option value=""> Select an item from sub menu</option>
+            <option value="">Sub Category</option>
             {this.props.itemsData
               .filter((item) => item.category == this.state.itemCat)
               .map((item) => {
@@ -72,7 +71,7 @@ class GenerateInvoice extends React.Component {
                 });
               })}
           </select>
-          <label> Select the quantity </label>
+          <label> Quantity </label>
           <select
             id="quantity"
             value={this.state.item.quantity}
@@ -84,11 +83,21 @@ class GenerateInvoice extends React.Component {
             }
           >
             {" "}
-            <option value=""> Select Quantity</option>
+            <option value="">Quantity</option>
             <option value="1">1 </option>
             <option value="2">2 </option>
             <option value="3">3 </option>
           </select>
+          <button
+            onClick={() => {
+              this.props.addItemToBill(this.state.item);
+              this.setState({
+                bills: this.state.bills.concat(this.state.item),
+              });
+            }}
+          >
+            Add
+          </button>
         </form>
         <div>
           {" "}
@@ -96,17 +105,6 @@ class GenerateInvoice extends React.Component {
           {this.state.item.quantity}
         </div>
 
-        <button
-          onClick={() => {
-            this.props.addItemToBill(this.state.item);
-            this.setState({
-              bills: this.state.bills.concat(this.state.item),
-            });
-          }}
-        >
-          {" "}
-          Add item in the bill{" "}
-        </button>
         <Link to="/displayinvoice">
           {" "}
           <button> Display Invoice</button>{" "}

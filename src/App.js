@@ -3,7 +3,7 @@ import React from "react";
 import DisplayInvoice from "./components/invoice/invoiceForm/displayinvoice/displayinvoice";
 import GenerateInvoice from "./components/invoice/invoiceForm/invoice/generateInvoice";
 import Header from "./components/header/header";
-import Home from "./components/Home/home";
+
 import Admin from "./components/Admin/Admin";
 import SignIn from "./components/Auth/signIn/signIn";
 import { BrowserRouter, Switch, Route } from "react-router-dom";

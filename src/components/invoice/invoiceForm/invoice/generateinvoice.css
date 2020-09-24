@@ -1,15 +1,28 @@
 .form {
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+}
+label {
+  font-weight: 600;
+  margin: 10px;
+}
+select {
+  width: 20%;
+  padding: 5px;
 }
 
-@media (min-width: 700px) {
-  .form {
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-  }
+.MuiFormControl-root {
+  width: 30%;
+}
+.bill {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  margin-left: 5px;
+  background: black;
+  color: #daf110;
+  font-weight: 800;
 }
