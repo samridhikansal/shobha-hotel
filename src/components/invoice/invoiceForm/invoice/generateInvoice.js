@@ -8,8 +8,6 @@ class GenerateInvoice extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //   displayCat: false,
-      //   selectCat: false,
       itemCat: "",
       itemList: "",
       item: {},
@@ -51,82 +49,57 @@ class GenerateInvoice extends React.Component {
           <select
             id="itemlist"
             value={this.state.item.name}
-            onChange={(e) =>
+            onChange={(e) => {
+              var dataset = e.target[e.target.selectedIndex].dataset;
               this.setState({
                 ...this.state,
-                item: { ...this.state.item, name: e.target.value },
-              })
-            }
+                item: {
+                  ...this.state.item,
+                  name: e.target.value,
+                  price: dataset.price,
+                },
+              });
+            }}
           >
             <option value=""> Select an item from sub menu</option>
-            {/* {this.props.itemsData[0].itemList.map((item) => {
-              return <option> {item.item}</option>;
-            })} */}
             {this.props.itemsData
               .filter((item) => item.category == this.state.itemCat)
               .map((item) => {
                 return item.itemList.map((itemlist) => {
-                  return <option> {itemlist.item}</option>;
+                  return (
+                    <option value={itemlist.item} data-price={itemlist.price}>
+                      {" "}
+                      {itemlist.item}
+                    </option>
+                  );
                 });
               })}
           </select>
-        </form>
-
-        {/* <form>
-          <label>Full Name</label>
-          <input type="text"></input>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              this.setState({ ...this.state, displayCat: true });
-            }}
+          <label> Select the quantity </label>
+          <select
+            id="quantity"
+            value={this.state.item.quantity}
+            onChange={(e) =>
+              this.setState({
+                ...this.state,
+                item: { ...this.state.item, quantity: e.target.value },
+              })
+            }
           >
             {" "}
-            Add Item
-          </button>
-          {this.state.displayCat ? (
-            <div>
-              {" "}
-              <label> Select item cat</label>
-              <select
-                onChange={(e) => {
-                  this.setState({
-                    ...this.state,
-                    itemCat: e.target.value,
-                    selectCat: true,
-                    // itemList: this.props.itemsData.filter(
-                    //   (item) => item.cat == e.target.value
-                    // ),
-                  });
-                }}
-              >
-                <option>Choose a category</option>
-                {this.props.itemsData.map((item) => (
-                  <option key={uuid()} value={item.cat}>
-                    {" "}
-                    {item.cat}
-                  </option>
-                ))}
-              </select>{" "}
-            </div>
-          ) : null}
-          {this.state.selectCat ? (
-            <div>
-              {
-                this.props.itemsData
-                  .filter((item) => item.cat == this.state.itemCat)
-                  .map((item) => {
-                    return item.itemList.map((itemlist) => {
-                      return <li> {itemlist.item}</li>;
-                    });
-                  })
-                // .map((selectedItems) => (
-                //   <li>{selectedItem.cat} {selectedItem.itemList.map( )</li>
-                // ))}
-              }
-            </div>
-          ) : null} */}
-        {/* </form> */}
+            <option value=""> Select Quantity</option>
+            <option value="1">1 </option>
+            <option value="2">2 </option>
+            <option value="3">3 </option>
+          </select>
+        </form>
+        <div>
+          {" "}
+          {this.state.item.name} {this.state.item.price}{" "}
+          {this.state.item.quantity}
+        </div>
+
+        <button> Add item in the bill </button>
         <Link to="/displayinvoice">
           {" "}
           <button> Display Invoice</button>{" "}
