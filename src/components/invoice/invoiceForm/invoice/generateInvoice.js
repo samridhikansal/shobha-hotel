@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import uuid from "react-uuid";
 import "./generateinvoice.css";
+import BillBoard from "../../../bill-board/billBoard";
 
 class GenerateInvoice extends React.Component {
   constructor(props) {
@@ -104,6 +105,7 @@ class GenerateInvoice extends React.Component {
           {" "}
           <button> Display Invoice</button>{" "}
         </Link>
+        <BillBoard />
       </div>
     );
   }
