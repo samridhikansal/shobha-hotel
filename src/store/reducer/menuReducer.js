@@ -1,24 +1,24 @@
 const initialState = {
   items: [
     {
-      cat: 1,
+      category: "CHINESE",
       itemList: [
-        { item: "item1", price: 2 },
-        { item: "item2", price: 2 },
+        { item: "Cream Tomato Soup ", price: 60 },
+        { item: "Chilly Paneer", price: 130 },
       ],
     },
     {
-      cat: 2,
+      category: "PIZZA",
       itemList: [
-        { item: "item1", price: 2 },
-        { item: "item2", price: 2 },
+        { item: "Cheese Pizza", price: 140 },
+        { item: "Onion Capsicum Pizza", price: 170 },
       ],
     },
     {
-      cat: 3,
+      category: "TANDOOR",
       itemList: [
-        { item: "item1", price: 2 },
-        { item: "item2", price: 2 },
+        { item: "Paneer Tikka", price: 170 },
+        { item: "Plain Roti", price: 10 },
       ],
     },
   ],
