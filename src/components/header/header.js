@@ -5,19 +5,16 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
+      <img className="icon" src="shobhaicon.jpg" />
       <div>
-        <Link to="/" className="link">
-          <h1>Shobha</h1>{" "}
-        </Link>
-      </div>
-      <div className="list">
-        <div style={{ marginLeft: "20px" }} className="link">
-          Sign up
+        <div>
+          <div className="name">SHOBHA HOTEL</div>
+          <div className="description">BANQUET HALL & FAMILY RESTAURANTS </div>
         </div>
-        <div style={{ marginLeft: "20px" }} className="link">
-          <Link to="/signin"> Sign In</Link>
-        </div>
+        <div></div>
       </div>
+
+      <div></div>
     </div>
   );
 };
