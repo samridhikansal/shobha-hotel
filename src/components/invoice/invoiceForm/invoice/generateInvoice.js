@@ -13,6 +13,7 @@ class GenerateInvoice extends React.Component {
       itemList: "",
       item: {},
       addedBill: {},
+      bills: [],
     };
   }
 
@@ -98,7 +99,7 @@ class GenerateInvoice extends React.Component {
         <button
           onClick={() =>
             this.setState({
-              addedBill: this.state.item,
+              bills: this.state.bills.concat(this.state.item),
             })
           }
         >
@@ -109,7 +110,7 @@ class GenerateInvoice extends React.Component {
           {" "}
           <button> Display Invoice</button>{" "}
         </Link>
-        <BillBoard item={this.state.addedBill} />
+        <BillBoard item={this.state.bills} />
       </div>
     );
   }

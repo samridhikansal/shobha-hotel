@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
+import uuid from "react-uuid";
 const BillBoard = ({ item }) => {
-  //   const [Bills, setBills] = useState([]);
-  //   useEffect(() => {
-  //     setBills({ Bills: Bills.push(item) });
-  //   });
   console.log("bill board => ", item);
   return (
     <div>
       <h3>Bill Board </h3>
-      {/* {Bills.map((itt) => {
+      {item.map((itt) => {
         console.log("itt =>", itt);
-        return <p>{itt}</p>;
-      })} */}
+        return (
+          <div key={uuid()}>
+            <span>{itt.name}</span>
+            <span>{itt.price}</span>
+            <span>{itt.quantity}</span>
+          </div>
+        );
+      })}
     </div>
   );
 };
