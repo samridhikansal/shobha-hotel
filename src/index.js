@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
-import menuReducer from "./store/reducer/menuReducer";
+import { rootReducers } from "./store/reducer/index";
+//import menuReducer from "./store/reducer/menuReducer";
 import { Provider } from "react-redux";
 
-const store = createStore(menuReducer);
+const store = createStore(rootReducers);
 
 ReactDOM.render(
   <React.StrictMode>
