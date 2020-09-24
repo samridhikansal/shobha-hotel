@@ -6,22 +6,17 @@ import "./generateinvoice.css";
 import BillBoard from "../../../bill-board/billBoard";
 
 class GenerateInvoice extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       itemCat: "",
       itemList: "",
       item: {},
+      addedBill: {},
     };
   }
 
   render() {
-    console.log(this.props.itemsData);
-    console.log(
-      this.props.itemsData.filter(
-        (items) => items.category === this.state.itemCat
-      )
-    );
     return (
       <div>
         <h3>Generate Invoice </h3>
@@ -100,12 +95,21 @@ class GenerateInvoice extends React.Component {
           {this.state.item.quantity}
         </div>
 
-        <button> Add item in the bill </button>
+        <button
+          onClick={() =>
+            this.setState({
+              addedBill: this.state.item,
+            })
+          }
+        >
+          {" "}
+          Add item in the bill{" "}
+        </button>
         <Link to="/displayinvoice">
           {" "}
           <button> Display Invoice</button>{" "}
         </Link>
-        <BillBoard />
+        <BillBoard item={this.state.addedBill} />
       </div>
     );
   }
