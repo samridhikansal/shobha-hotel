@@ -3,24 +3,20 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import uuid from "react-uuid";
 import "./generateinvoice.css";
+import BillBoard from "../../../bill-board/billBoard";
 
 class GenerateInvoice extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       itemCat: "",
       itemList: "",
       item: {},
+      addedBill: {},
     };
   }
 
   render() {
-    console.log(this.props.itemsData);
-    console.log(
-      this.props.itemsData.filter(
-        (items) => items.category === this.state.itemCat
-      )
-    );
     return (
       <div>
         <h3>Generate Invoice </h3>
@@ -111,6 +107,7 @@ class GenerateInvoice extends React.Component {
           {" "}
           <button> Display Invoice</button>{" "}
         </Link>
+        <BillBoard item={this.state.addedBill} />
       </div>
     );
   }
