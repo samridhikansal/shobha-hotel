@@ -97,11 +97,12 @@ class GenerateInvoice extends React.Component {
         </div>
 
         <button
-          onClick={() =>
+          onClick={() => {
+            this.props.addItemToBill(this.state.item);
             this.setState({
               bills: this.state.bills.concat(this.state.item),
-            })
-          }
+            });
+          }}
         >
           {" "}
           Add item in the bill{" "}
@@ -118,8 +119,16 @@ class GenerateInvoice extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    itemsData: state.items,
+    itemsData: state.menuReducer.items,
   };
 };
 
-export default connect(mapStateToProps)(GenerateInvoice);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItemToBill: (item) => {
+      dispatch({ type: "ADD_ITEM_TO_BILL", payload: item });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GenerateInvoice);
