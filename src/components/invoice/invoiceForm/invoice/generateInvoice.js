@@ -89,7 +89,8 @@ class GenerateInvoice extends React.Component {
             <option value="3">3 </option>
           </select>
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               this.props.addItemToBill(this.state.item);
               this.setState({
                 bills: this.state.bills.concat(this.state.item),
